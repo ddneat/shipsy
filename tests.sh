@@ -22,19 +22,19 @@ function test() {
   matches=`echo $result | grep "$3" | wc -l`;
   if [ $matches -eq 0 ]
   then
-    message=`yellow "$1 $2"`;
-    echo `red "Fail: $message"`;
-    echo `yellow "Result: $result"`;
+    echo `red "Fail: $1 $2"`;
+    echo `yellow "+ $3"`;
+    echo `red "- $result"`;
     exit 1;
   fi
   message=`blue "$1 $2"`;
   echo `green "Pass: $message"`;
 }
 
-VERSION_ERROR="Expected <major|minor|patch> passed as first argument";
+VERSION_ERROR="Expected categroy <major|minor|patch> passed as first argument";
 
 test "sh release.sh" "throws when no argument is passed" "$VERSION_ERROR";
-test "sh release.sh beta" "throws when invalid semver is passed" "Invalid version 'beta' passed. $VERSION_ERROR";
+test "sh release.sh beta" "throws when invalid semver is passed" "Invalid category 'beta' passed. $VERSION_ERROR";
 test "sh release.sh major" "logs major semver" "Preparing major";
 test "sh release.sh minor" "logs minor semver" "Preparing minor";
 test "sh release.sh patch" "logs minor patch" "Preparing patch";

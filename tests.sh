@@ -31,10 +31,10 @@ function test() {
   echo `green "Pass: $message"`;
 }
 
-VERSION_ERROR="Expected categroy <major|minor|patch> passed as first argument";
+ERROR_CATEGORY="Expected categroy <major|minor|patch> passed as first argument";
 
-test "sh release.sh" "throws when no argument is passed" "$VERSION_ERROR";
-test "sh release.sh beta" "throws when invalid semver is passed" "Invalid category 'beta' passed. $VERSION_ERROR";
+test "sh release.sh" "throws when no argument is passed" "$ERROR_CATEGORY";
+test "sh release.sh beta" "throws when invalid semver is passed" "Invalid category 'beta' passed. $ERROR_CATEGORY";
 test "sh release.sh major" "logs major semver" "Preparing major";
 test "sh release.sh minor" "logs minor semver" "Preparing minor";
 test "sh release.sh patch" "logs minor patch" "Preparing patch";

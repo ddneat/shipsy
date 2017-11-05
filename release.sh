@@ -7,16 +7,22 @@ CATEGORY=${1:?$ERROR_CATEGORY};
 CURRENT=${2:?$ERROR_CURRENT};
 
 function next() {
-  if [ $1 == "patch" ]
+  patch=`echo $2 | egrep -o "\d*$"`
+  minor=`echo $2 | egrep -o "\.\d+\." | tr -d "\."`
+  major=`echo $2 | egrep -o "^\d+"`
+
+  if [ $1 == "patch"  ]
   then
-    echo "1.2.1";
+    patch=`expr $patch + 1`
   elif [ $1 == "minor" ]
   then
-    echo "1.3.0";
+    minor=`expr $minor + 1`
   elif [ $1 == "major" ]
   then
-    echo "2.2.0";
+    major=`expr $major + 1`
   fi
+
+  echo "$major.$minor.$patch"
 }
 
 if `echo $1 | egrep -q '^(major|minor|patch)$'` 

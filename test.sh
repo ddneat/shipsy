@@ -15,7 +15,6 @@ function blue() {
 }
 
 function test() {
-  cmd="sh release.sh";
   result=`{ $1; } 2>&1`;
   matches=`echo $result | grep "$3" | wc -l`;
   if [ $matches -eq 0 ]

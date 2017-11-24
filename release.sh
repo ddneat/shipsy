@@ -1,6 +1,6 @@
 #!/bin/sh
 
-ERROR_CATEGORY="Expected categroy <major|minor|patch> passed as first argument";
+ERROR_CATEGORY="Expected category <major|minor|patch> passed as first argument";
 ERROR_CURRENT="Expected current semver <X.Y.Z> passed as second argument";
 
 CATEGORY=${1:?$ERROR_CATEGORY};

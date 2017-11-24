@@ -2,7 +2,7 @@
 
 source ./test.sh
 
-ERROR_CATEGORY="Expected categroy <major|minor|patch> passed as first argument";
+ERROR_CATEGORY="Expected category <major|minor|patch> passed as first argument";
 ERROR_CURRENT="Expected current semver <X.Y.Z> passed as second argument";
 
 test "sh release.sh" "throws when no argument is passed" "$ERROR_CATEGORY";
